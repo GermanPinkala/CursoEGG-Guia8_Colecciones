@@ -55,23 +55,37 @@ public class PaisesServicio {
 
         ArrayList<String> listaPaises = new ArrayList(paises);
         Collections.sort(listaPaises);
-        
+
         System.out.println("Paises ordenados: ");
-        System.out.println("");
         for (String pais : listaPaises) {
             System.out.println(pais);
         }
-        
+
+    }
+
+    public boolean buscarPais(String paisBuscado) {
+
+        Iterator<String> iterator = paises.iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().equalsIgnoreCase(paisBuscado)) {
+                return true;
+            }
+        }
+        return false;
+
     }
     
-    public boolean buscarPais(String paisBuscado){
+    public void eliminarPais(String paisAEliminar){
         
         Iterator<String> iterator = paises.iterator();
-        while (true) {
-            
+        while (iterator.hasNext()) {
+            if (iterator.next().equalsIgnoreCase(paisAEliminar)) {
+                
+                iterator.remove();
+                System.out.println("País eliminado correctamente.");
+            }
         }
         
-        return true;
     }
-    
+
 }
